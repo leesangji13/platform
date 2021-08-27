@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+    <title>wallet</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Tangerine">
+    <link rel="stylesheet" href="./css/setup.css">
+    <link rel="stylesheet" href="./css/include.css">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <script src="./css/jquery.js"></script>
+    <style>
+        main{
+            padding-top: 20px;
+        }
+        .total{
+            background-color: #f5f5f5;
+            border-radius: 20px;
+            padding: 50px 0;
+            margin: 0 40px;
+            margin-bottom: 180px;
+            position: relative;
+        }
+        p{
+            font-size: 17px;
+        }
+        h3, h3 span{
+            font-size: 40px;
+            margin: 20px 0;
+        }
+        h3 span, h5 span, .address, h6 span, .history p span{
+            color: #3E10C3;
+        }
+        h5, h5 span, h6, h6 span{
+            font-weight: 400;
+        }
+        h6, h6 span{
+            margin-top: 12px;
+            margin-bottom: 30px;
+        }
+        .qr{
+            position: absolute;
+            bottom: -40%;
+            right: -50px;
+            text-align: right;
+        }
+        .qr img{
+            padding: 15px;
+            border-radius: 20px;
+            border: 3px solid #818181;
+            background-color: #414141;
+            margin-bottom: 30px;
+        }
+        .qr .material-icons{
+            display: none;
+        }
+        .address{
+            border: 0;
+            outline: 0;
+            background-color: #919191;
+            border-radius: 20px;
+            padding: 5px 30px;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+        
+        .copy{
+            background-color: #919191;
+            border-radius: 20px;
+            padding: 6px 17px;
+            border: 0;
+            outline: 0;
+            cursor: pointer;
+        }
+        h2{
+            text-align: left;
+            font-size: 17px;
+            margin-bottom: 20px;
+        }
+        .history{
+            background-color: #f5f5f5;
+            border-radius: 20px;
+            padding: 50px 30px;
+            overflow: scroll;
+        }
+        .history .left{text-align: left;}
+        .history .left h3{
+            color: #3E10C3;
+            font-size: 17px;
+            margin: 10px 0;
+        }
+        .history .left p{
+            font-weight: 500;
+            color: #414141;
+        }
+        .history .line::after{
+            content: "";
+            display: block;
+            width: 100%;
+            height: 1px;
+            background-color: #D7D7D7;
+            margin: 10px 0;
+        }
+        .history .line:last-child::after{
+            height: 2px;
+            background-color: #d1d1d1;
+        }
+        .history .right{text-align: right;}
+        .history .right h4{}
+        .history p, .history p span, .history .right h4{
+            font-size: 14px;
+        }
+        @media only screen and (min-width:100px) and (max-width:600px){
+            .qr ul li{
+                margin-right: 2px;
+                font-size: 13px;
+            }
+            .copy{
+                font-size: 13px;
+            }
+        }
+        @media only screen and (min-width:100px) and (max-width:500px){
+            .total{
+                margin: 0;
+                margin-bottom: 180px;
+            }
+            .qr{
+                bottom: -31%;
+                left: 50%;
+                transform: translateX(-50%);
+                text-align: center;
+            }
+            .qr img{
+                width: 110px;
+                margin-bottom: 15px;
+            }
+            .qr .material-icons{
+                display: block;
+                font-size: 18px;
+                position: absolute;
+                right: 15px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            .address{
+                margin: 0;
+                padding: 5px 40px 5px 20px;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 12px;
+            }
+            .address:hover{
+                background-color: #2DCCB7;
+            }
+            .copy{
+                display: none;
+                margin-top: 35px;
+            }
+            .qr ul li{
+                font-size: 12px;
+            }
+            .history{
+                padding: 42px 20px;
+            }
+            .history .left h3{
+                font-size: 12px;
+            }
+            .history .left p, .history p, .history p span, .history .right h4{
+                font-size: 13px;
+            }
+        }
+        @media only screen and (min-width:100px) and (max-width:330px){
+            .wrap{
+                padding: 0 30px;
+            }
+            header .menuBox ul li a, header .menuBox .logout, header .menuBox .logout .off{
+                font-size: 14px;
+            }
+            h2{
+                font-size: 16px;
+            }
+            .address{
+                font-size: 11px;
+            }
+            h3, h3 span{
+                font-size: 35px;
+            }
+            p{font-size: 14px;}
+            .history .left h3{
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="wrap">
+            <div class="flex">
+                 <div class="material-icons">
+                      <a href="#"><span class="material-icons-outlined material-icons">arrow_back_ios</span></a>
+                  </div>
+                <div class="name_1">BTC 지갑</div>
+                <i class="fas bar fa-bars"></i>
+            </div>
+            <nav class="menu">
+                <div class="menuBox">
+                    <div class="home">
+                        <a href="#"><img class="img" src="./img/home_ico.png" alt="">메인</a>
+                    </div>
+                    <ul>
+                        <li><a href="#"><img src="./img/menuIco_01.png" alt="">상품 구매</a></li>
+                        <li><a href="#"><img src="./img/menuIco_02.png" alt="">내 정보</a></li>
+                        <li><a href="#"><img src="./img/menuIco_03.png" alt="">공지사항</a></li>
+                        <li><a href="#"><img src="./img/menuIco_05.png" alt="">앱 정보</a></li>
+                        <li><a href="#"><img src="./img/menuIco_04.png" alt="">관리자</a></li>
+                    </ul>
+                    <div class="close">
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <a href="#" class="logout"><i class="fas off fa-power-off"></i>로그아웃</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="wrap">
+            <div class="total">
+                <p>나의 BTC 지갑 잔고</p>
+                <h3>0.00 <span>BTC</span></h3>
+                <h5>= 0.00 <span>USD</span></h5>
+                <h6>1 BTC = 0.000 <span>USD</span></h6>
+                <div class="qr">
+                    <img src="./img/qr.png" alt="">
+                    <ul>
+                        <li style="
+                        vertical-align: middle;
+                    "><button class="address">mgqdQphqT3uLn4aTaTfsngyCW92VMW2eMT <span class="material-icons-outlined material-icons">
+                        content_copy
+                        </span></button></li>
+                        <li style="
+                        vertical-align: middle;
+                    "><button class="copy">Copy</button></li>
+                    </ul>
+                </div>
+            </div>
+            <h2>거래 내역</h2>
+            <div class="history">
+                   <div class="left">
+                        <p>지갑 주소 :</p> <h3>mgqdQphqT3uLn4aTaTfsngyCW92VMW2eMT</h3>
+                        <p>TXID :</p>
+                   </div>
+                   <span class="line"></span>
+                   <div class="right">
+                       <h4>+ 0.00 BTC</h4>
+                       <p>0.00 <span>USD</span></p>
+                   </div>
+                   <span class="line"></span>
+            </div>
+        </div>
+    </main>
+</body>
+<script>
+    $(function(){
+        $("header .bar").on("click",function(){
+            $("header .menu").toggleClass("view");   
+        });
+        $("header .menuBox .close span").on("click",function(){
+            $("header .menu").removeClass("view");   
+        });
+    });
+</script>
+</html>

@@ -1,0 +1,174 @@
+header{
+    padding: 20px 0;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+header td{
+    border-spacing: 30px; 
+}
+header .name, header .name_1{
+    width: 33.33%;
+    font-size: 17px;
+    text-align: left;
+}
+header .name_1{text-align: center;}
+header .material-icons{
+    width: 33.33%;
+    text-align: left;
+}
+header .material-icons-round{text-align: right;}
+header .user{
+    width: 33.33%;
+    font-size: 25px;
+}
+header .bar{
+    width: 33.33%;
+    font-size: 17px;
+    text-align: right;
+    cursor: pointer;
+}
+header .line::after{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: black;
+    margin: 15px 0;
+}
+header .menu .menuBox{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    background-color: #414141;
+    z-index: 999;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity .5s 0s, transform 0s .5s;
+}
+header .menu.view .menuBox{
+    opacity: 1;
+    transform: translateX(0%);
+    transition: opacity .5s 0s, transform 0s 0s;
+}
+header .menuBox ul{
+    position: absolute;
+    top: 30%;
+    width: 100%;
+    transform: translateY(-30%);
+}
+header .menuBox ul li{
+    width: 100%;
+    display: block;
+    text-align: left;
+}
+header .menuBox ul li::before, header .menuBox ul li:last-child::after{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #818181;
+}
+header .menuBox ul li a{
+    width: 100%;
+    padding: 25px 20px;
+    font-size: 17px;
+    color: white;
+}
+header .menuBox .close span{
+    position: absolute;
+    top: 34px;
+    right: 21px;
+    width: 16px;
+    height: 2px;
+    border-radius: 2px;
+    background-color: white;
+    cursor: pointer;
+}
+header .menu .menuBox .close span:first-child{
+    transform: translate(-50%,-50%) rotate(45deg);
+    width: 20px;
+}
+header .menu .menuBox .close span:last-child{
+    transform: translate(-50%,-50%) rotate(-45deg);
+    width: 20px;
+}
+header .menu.view .menuBox .close span:first-child{
+    z-index: 1000;
+}
+header .menu.view .menuBox .close span:last-child{
+    z-index: 1000;
+}
+header .menuBox .home a{
+    color: white;
+    font-size: 17px;
+    position: absolute;
+    left: 20px;
+    top: 21px;
+    vertical-align: middle;
+}
+header .menuBox .img{
+    width: auto;
+    height: 27px;
+    vertical-align: middle;
+}
+header .menuBox img{
+    width: auto;
+    height: 30px;
+    margin-right: 20px;
+}
+header .menuBox .logout{
+    color: white;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 17px;
+}
+header .menuBox .logout .off{
+    font-size: 17px;
+    vertical-align: baseline;
+    padding-right: 10px;
+}
+@media only screen and (min-width:100px) and (max-width:400px){
+    header .name, header .name_1{
+        font-size: 16px;
+    }
+    header .name_1{
+        width: 42%;
+    }
+    header .menu .menuBox{
+        width: 100%;
+    }
+    header .menuBox ul li a{
+        padding: 19px 20px;
+    }
+    header .menuBox .home a, header .menuBox ul li a, header .menuBox .logout, header .menuBox .logout .off{
+        font-size: 15px;
+    }
+    header .menuBox .img{
+        height: 25px;
+    }
+    header .menuBox img{
+        height: 28px;
+    }
+}
+@media only screen and (min-width:100px) and (max-width:330px){
+    header .name{
+        font-size: 14px;
+    }
+    header .bar{
+        font-size: 16px;
+    }
+    header .user{
+        font-size: 23px;
+    }
+    header .menuBox img{
+        height: 25px;
+    }
+    header .menuBox .img{
+        height: 23px;
+    }
+    header .menuBox .home a, header .menuBox ul li a, header .menuBox .logout, header .menuBox .logout .off{
+        font-size: 14px;
+    }
+}

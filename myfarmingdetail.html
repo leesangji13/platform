@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+    <title>myfarmingdetail</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Tangerine">
+    <link rel="stylesheet" href="./css/setup.css">
+    <link rel="stylesheet" href="./css/include.css">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="./css/jquery.js"></script>
+    <style>
+        .mining, .history{
+            background-color: #f5f5f5;
+            border-radius: 20px;
+            padding: 10px 20px;
+            margin-bottom: 10px;
+        }
+        h2{
+            font-weight: bold;
+            font-size: 17px;
+            text-align: left;
+        }
+        h4, h5{font-size: 15px;}
+        h3, h6, h6 span{
+            font-size: 15px;
+            font-weight: bold;
+        }
+        h6 span{
+            color: #3E10C3;
+        }
+        .line::after{
+            content: "";
+            display: block;
+            width: 100%;
+            height: 1px;
+            background-color: #919191;
+            margin: 20px 0;
+        }
+        .span{
+            font-size: 13px;
+            color: #515151;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="wrap">
+            <div class="flex">
+                 <div class="material-icons">
+                      <a href="#"><span class="material-icons-outlined material-icons">arrow_back_ios</span></a>
+                  </div>
+                <div class="name_1">마이닝 상세</div>
+                <i class="fas bar fa-bars"></i>
+            </div>
+            <nav class="menu">
+                <div class="menuBox">
+                    <div class="home">
+                        <a href="#"><img class="img" src="./img/home_ico.png" alt="">메인</a>
+                    </div>
+                    <ul>
+                        <li><a href="#"><img src="./img/menuIco_01.png" alt="">상품 구매</a></li>
+                        <li><a href="#"><img src="./img/menuIco_02.png" alt="">내 정보</a></li>
+                        <li><a href="#"><img src="./img/menuIco_03.png" alt="">공지사항</a></li>
+                        <li><a href="#"><img src="./img/menuIco_05.png" alt="">앱 정보</a></li>
+                        <li><a href="#"><img src="./img/menuIco_04.png" alt="">관리자</a></li>
+                    </ul>
+                    <div class="close">
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <a href="#" class="logout"><i class="fas off fa-power-off"></i>로그아웃</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="wrap">
+            <h2>Mining</h2>
+            <div class="mining">
+                <div class="flex">
+                    <h3>기간</h3>
+                    <p>2021.06.08 - 2024.06.07</p>
+                </div>
+                <span class="line"></span>
+                <div class="w3-light-grey w3-round-xlarge">
+                    <div class="w3-container w3-gray w3-round-xlarge" style="width:25%">25%</div>
+                </div>
+                <div class="flex">
+                    <h4>누적 수익</h4>
+                    <h5>0.00</h5>
+                </div>
+                <div class="flex">
+                    <h4>오늘의 수익</h4>
+                    <h6>0 <span>FIL</span></h6>
+                </div>
+            </div>
+            <span class="span">* 매일 12:00:00 에 데이터가 업데이트 됩니다.</span>
+            <h2>History</h2>
+            <div class="history">
+               <div class="flex">
+                    <h4>2021.06.06</h4>
+                    <h5>0.00FIL</h5>
+               </div>
+            </div>
+        </div>
+    </main>
+</body>
+<script>
+    $(function(){
+        $("header .bar").on("click",function(){
+            $("header .menu").toggleClass("view");   
+        });
+        $("header .menuBox .close span").on("click",function(){
+            $("header .menu").removeClass("view");   
+        });
+    });
+</script>
+</html>

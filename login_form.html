@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+    <title></title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Tangerine">
+    <link rel="stylesheet" href="./css/setup.css">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="./css/jquery.js"></script>
+    <style>
+        main{
+            width: 100vw;
+            height: 100vh;
+            background: rgb(75,80,102);
+            background: linear-gradient(121deg, rgba(75,80,102,1) 0%, rgba(145,137,134,1) 100%);
+        }
+        .material-icons{
+            width: auto;
+            color: white;
+        }
+        main h1{
+            font-size: 30px;
+            margin: 20px 0;
+            color: white;
+        }
+        .modal{
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background: rgb(75,80,102);
+            background: linear-gradient(121deg, rgba(75,80,102,1) 0%, rgba(145,137,134,1) 100%);
+        }
+        .modal-content{
+            width: 50%;
+            background-color: rgba(0,0,0,0.4);
+            position: relative;
+            margin: 15% auto;
+            padding: 0 20px 20px 20px;
+            border-top: 3px solid #29C8BF;
+        }
+        .close{
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover, .close:focus{
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        main{
+            padding-top: 35px;
+        }
+        input{
+            display: block;
+            width: 100%;
+            border: 0;
+            border-radius: 20px;
+            background-color: #fff;
+            color: #414141;
+            padding: 10px;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+        input::placeholder {
+            color:#414141;
+            font-weight: lighter;
+        }
+        input::-webkit-input-placeholder {
+            color:#414141;
+            font-weight: lighter;
+        }
+        input:-ms-input-placeholder {
+            color:#414141;
+            font-weight: lighter;
+        }
+        .input{
+            position: relative;
+        }
+        i{
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            color: #414141;
+            cursor: pointer;
+            font-size: 15px;
+        }
+        .btn{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        button{
+            width: 186px;
+            height: 60px;
+            display: block;
+            margin: 0 auto;
+            margin-top: 10px;
+            outline: 0;
+            border: 0;
+            border-radius: 10px;
+            font-size: 17px;
+            font-weight: 300;
+            color: white;
+            cursor: pointer;
+            background-color: #919191;
+        }
+        .button{
+            background-color: #29C8BF;
+        }
+        a{
+            font-size: 13px;
+            color: white;
+        }
+        .span{
+            text-align: left;
+            margin-left: 10px;
+            margin-bottom: 50px;
+        }
+        @media only screen and (min-width:100px) and (max-width:600px){
+            main h1{
+                font-size: 20px;
+            }
+            .modal-content{
+                width: 70%;
+                padding: 0 15px 15px 15px;
+            }
+            input, span{
+                font-size: 10px;
+            }
+            input{
+                padding-left: 14px;
+            }
+            .fa-lg{
+                font-size: 16px;
+            }
+            .material-icons{
+                font-size: 17px;
+            }
+            .close{
+                font-size: 19px;
+            }
+            .button{
+                width: 100px;
+                height: 37px;
+                font-size: 15px;
+            }
+            i{
+                right: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="btn">
+            <button id="topBtn">LOG IN</button>
+            <button id="bottomBtn">REGISTER</button>
+        </div>
+        <div id="topModal" class="modal">
+            <div class="modal-content">
+                <div class="flex">
+                    <div class="material-icons">
+                        <a href="#"><span class="material-icons-outlined material-icons">arrow_back_ios</span></a>
+                    </div>   
+                    <h1>LOG IN</h1>
+                    <span class="close">&times;</span>
+                </div>
+                <input type="text" placeholder="아이디를 입력해주세요." maxlength="10">
+                <div class="input">
+                    <input class="password" type="password" placeholder="비밀번호를 입력해주세요." maxlength="10">
+                    <i class="fa eye fa-eye-slash fa-lg"></i>
+                </div>
+                <div class="span">
+                    <a href="#"><span>비밀번호를 잊으셨나요?</span></a>
+                </div>
+                <button class="button">Log In</button>
+            </div>
+        </div>
+        
+    </main>
+</body>
+<script>  
+    ////top////
+    // Get the modal
+    var modal = document.getElementById('topModal');
+ 
+    // Get the button that opens the modal
+    var btn = document.getElementById("topBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];                                          
+
+    // When the user clicks on the button, open the modal 
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+    
+    $(document).ready(function(){
+        $('.eye').on('click',function(){
+            $('input').toggleClass('active');
+            if($('input').hasClass('active')){
+                $(this).attr('class',"fa fa-eye fa-lg")
+                .prev('input').attr('type',"text");
+            }else{
+                $(this).attr('class',"fa fa-eye-slash fa-lg")
+                .prev('input').attr('type','password');
+            }
+        });
+    });
+    
+</script>
+</html>

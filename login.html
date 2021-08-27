@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+    <title>login</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Tangerine">
+    <link rel="stylesheet" href="./css/setup.css">
+    <link rel="stylesheet" href="./css/include.css">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="./css/jquery.js"></script>
+    <style>
+        header .wrap{
+            position: relative;
+        }
+        .material-icons{
+            width: auto;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            color: black;
+        }
+        header h1{
+            font-size: 30px;
+            margin: 0;
+        }
+        main{
+            padding-top: 35px;
+        }
+        input{
+            display: block;
+            width: 100%;
+            border: 0;
+            border-radius: 20px;
+            background-color: #515151;
+            padding: 10px;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            color: white;
+            font-weight: 300;
+        }
+        input::placeholder {
+            color:white;
+            font-weight: lighter;
+        }
+        input::-webkit-input-placeholder {
+            color:white;
+            font-weight: lighter;
+        }
+        input:-ms-input-placeholder {
+            color:white;
+            font-weight: lighter;
+        }
+        .input{
+            position: relative;
+        }
+        i{
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            color: white;
+            cursor: pointer;
+            font-size: 15px;
+        }
+        button{
+            display: block;
+            margin: 0 auto;
+            outline: 0;
+            border: 0;
+            border-radius: 20px;
+            padding: 10px 40px;
+            font-size: 18px;
+            font-weight: 300;
+            color: white;
+            cursor: pointer;
+            background-color: #919191;
+        }
+        a{
+            font-size: 13px;
+            color: #3E10C3;
+        }
+        .span{
+            text-align: left;
+            margin-left: 10px;
+            margin-bottom: 50px;
+        }
+        @media only screen and (min-width:100px) and (max-width:600px){
+            .wrap{
+                padding: 0 30px;
+            }
+            .material-icons{
+                margin-left: 15px;
+            }
+        }
+        @media only screen and (min-width:100px) and (max-width:400px){
+            input{
+                font-size: 12px;
+            }
+            .span a span{
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+       <div class="wrap">
+           <div class="material-icons">
+              <a href="#"><span class="material-icons-outlined material-icons">arrow_back_ios</span></a>
+            </div>   
+            <h1>LOG IN</h1>
+       </div>
+    </header>
+    <main>
+        <div class="wrap">
+            <input type="text" placeholder="아이디를 입력해주세요." maxlength="10">
+            <div class="input">
+                <input class="password" type="password" placeholder="비밀번호를 입력해주세요." maxlength="10">
+                <i class="fa eye fa-eye-slash fa-lg"></i>
+            </div>
+            <div class="span">
+                <a href="#"><span>비밀번호를 잊으셨나요?</span></a>
+            </div>
+            <button>Log In</button>
+        </div>
+    </main>
+</body>
+<script>
+    $(document).ready(function(){
+        $('.eye').on('click',function(){
+            $('input').toggleClass('active');
+            if($('input').hasClass('active')){
+                $(this).attr('class',"fa fa-eye fa-lg")
+                .prev('input').attr('type',"text");
+            }else{
+                $(this).attr('class',"fa fa-eye-slash fa-lg")
+                .prev('input').attr('type','password');
+            }
+        });
+    });
+</script>
+</html>
